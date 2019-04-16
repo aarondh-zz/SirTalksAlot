@@ -1,0 +1,20 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "WEBSITE_SLOT_NAME": "Production",
+    "FUNCTIONS_EXTENSION_VERSION": "~2",
+    "ScmType": "None",
+    "WEBSITE_AUTH_ENABLED": "False",
+    "REMOTEDEBUGGINGVERSION": "15.0.28307.222",
+    "APPINSIGHTS_INSTRUMENTATIONKEY": "916e387f-f004-41c8-80a5-9829aee36c5f",
+    "WEBSITE_NODE_DEFAULT_VERSION": "10.14.1",
+    "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "DefaultEndpointsProtocol=https;AccountName=sirtalksalota575;AccountKey=HOKNC4RjqN6ZzwZQWl3OcrRQONJYc7yeEj7bLIGZEEby8jGK3ZiO1p779fxgECb6dma7c2CNaJR1YXi0TlbGxg==",
+    "THE_BRAIN": "SirTalksAlotBrain.azurewebsites.net",
+    "WEBSITE_CONTENTSHARE": "sirtalksalota575",
+    "WEBSITE_AUTH_AUTO_AAD": "False",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "WEBSITE_SITE_NAME": "SirTalksAlot",
+    "WEBSITE_AUTH_LOGOUT_PATH": "/.auth/logout",
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=sirtalksalota575;AccountKey=HOKNC4RjqN6ZzwZQWl3OcrRQONJYc7yeEj7bLIGZEEby8jGK3ZiO1p779fxgECb6dma7c2CNaJR1YXi0TlbGxg=="
+  }
+}

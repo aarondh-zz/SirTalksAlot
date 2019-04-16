@@ -1,0 +1,15 @@
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "LetsTalkProxy": {
+            "matchCondition": {
+                "route": "LetsTalk"
+            },
+            "backendUri": "https://%THE_BRAIN%/api/LetsTalk",
+            "requestOverrides": {
+                "backend.request.method": "get",
+                "backend.request.querystring.code": "M9tNS2SPGNfWwlK8/SjIqJMLrqTkioa/qVL2zKnq8FIjRYreMnerIQ=="
+            }
+        }
+    }
+}
