@@ -11,6 +11,9 @@
     "WEBSITE_CONTENTSHARE": "sirtalksalotbrain9d83",
     "FUNCTIONS_WORKER_RUNTIME": "dotnet",
     "WEBSITE_SITE_NAME": "SirTalksALotBrain",
-    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=sirtalksalota575;AccountKey=HOKNC4RjqN6ZzwZQWl3OcrRQONJYc7yeEj7bLIGZEEby8jGK3ZiO1p779fxgECb6dma7c2CNaJR1YXi0TlbGxg=="
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=sirtalksalota575;AccountKey=HOKNC4RjqN6ZzwZQWl3OcrRQONJYc7yeEj7bLIGZEEby8jGK3ZiO1p779fxgECb6dma7c2CNaJR1YXi0TlbGxg==",
+    "BotId": "SirTalksAlot",
+    "MicrosoftAppId": "d30c2049-60a9-4ba2-acf8-6071543b1111",
+    "MicrosoftAppPassword": "7t(%:;|9eRk2XJ*-QLiq=Y65KP5irs*bFPt#b[#uU{jbWE=Y+b#2}0PbKz"
   }
 }

@@ -1,0 +1,18 @@
+{
+    "name": "Test SirTalksAlot",
+    "description": "",
+    "services": [
+        {
+            "type": "endpoint",
+            "appId": "",
+            "appPassword": "",
+            "endpoint": "http://localhost:7071/api/BotMessage",
+            "id": "e9db01e0-62ce-11e9-b63c-95c316e3dbc7",
+            "name": "http://localhost:7071/api/BotMessage"
+        }
+    ],
+    "padlock": "",
+    "version": "2.0",
+    "overrides": null,
+    "path": "C:\\Projects\\GitHub\\aarondh\\SirTalksAlot\\TestSirTalksAlot.bot"
+}

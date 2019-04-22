@@ -1,18 +1,30 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net461</TargetFramework>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="LetsTalk\LetsTalk.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LetsTalk\LetsTalk.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Bot.Builder.AI.Luis" Version="4.3.2" />
+    <PackageReference Include="Microsoft.Bot.Builder.Azure" Version="4.3.2" />
+    <PackageReference Include="Microsoft.Bot.Builder.Calling" Version="3.20.1" />
+    <PackageReference Include="Microsoft.Bot.Builder.CognitiveServices" Version="1.1.7" />
+    <PackageReference Include="Microsoft.Bot.Builder.History" Version="3.20.1" />
+    <PackageReference Include="Microsoft.Bot.Connector" Version="4.3.2" />
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ServiceModel" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="LetsTalk/function.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="LetsTalk/run.csx">
