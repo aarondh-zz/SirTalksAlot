@@ -69,6 +69,16 @@ namespace SirTalksALotBrain
 
         public static async Task<IJWTToken> Authenticate(string microsoftAppId, string microsoftAppPassword)
         {
+            if (string.IsNullOrEmpty(microsoftAppId))
+            {
+                throw new ArgumentException("Invalid or missing", nameof(microsoftAppId));
+            }
+
+            if (string.IsNullOrEmpty(microsoftAppPassword))
+            {
+                throw new ArgumentException("Invalid or missing", nameof(microsoftAppPassword));
+            }
+
             var authenticationUri = new Uri("https://login.microsoftonline.com/botframework.com/oauth2/v2.0/token");
 
             using (var client = new HttpClient())
