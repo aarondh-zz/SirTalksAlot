@@ -56,7 +56,7 @@ namespace SirTalksALotBrain
                             reply = message.CreateReply($"You sent {message.Text.Length} characters");
                         }
 
-                        var result = await ReplyToActivityAsync(message.ServiceUrl, accessToken, reply, message.Id);
+                        var result = await ReplyToActivityAsync(message.ServiceUrl, accessToken, reply);
 
                         return req.CreateResponse(HttpStatusCode.OK);
                     }
@@ -77,20 +77,30 @@ namespace SirTalksALotBrain
             }
             catch( Exception e)
             {
-                return req.CreateResponse(HttpStatusCode.BadRequest, e.Message + e.StackTrace);
+                log.Error("An unhandled exception occurred", e);
+                return req.CreateResponse(HttpStatusCode.BadRequest, e.Message);
             }
         }
-        private static async Task<string> ReplyToActivityAsync(string serviceUrl, IJWTToken accessToken, Activity responseMessage, string activityId = null)
+        private static async Task<string> ReplyToActivityAsync(string serviceUrl, IJWTToken accessToken, Activity responseMessage, bool replyToActivity = true)
         {
             Uri botServiceUri = new Uri(serviceUrl);
-            string uriPattern = activityId == null ? "/v3/conversations/{conversationId}/activities" : "/v3/conversations/{conversationId}/activities/{activityId}";
+            string uriPattern = replyToActivity ? "/v3/conversations/{conversationId}/activities/{activityId}" : "/v3/conversations/{conversationId}/activities";
+
+            NameValueCollection parameters = new NameValueCollection();
+            parameters.Add("conversationId", responseMessage.Conversation.Id);
+            if (replyToActivity)
+            {
+                uriPattern = "/v3/conversations/{conversationId}/activities/{activityId}";
+                parameters.Add("activityId", responseMessage.ReplyToId);
+            }
+            else
+            {
+                uriPattern = "/v3/conversations/{conversationId}/activities";
+            }
+
             UriTemplate botResponseUriTemplate = new UriTemplate(uriPattern);
             using (var client = new HttpClient())
             {
-                NameValueCollection parameters = new NameValueCollection();
-                parameters.Add("conversationId", responseMessage.Conversation.Id);
-                parameters.Add("activityId", responseMessage.ReplyToId);
-
                 Uri botResponseUri = botResponseUriTemplate.BindByName(botServiceUri, parameters);
 
                 var jsonText = JsonConvert.SerializeObject(responseMessage);
@@ -135,13 +145,13 @@ namespace SirTalksALotBrain
             IEnumerable<string> authorizations;
             if( headers.TryGetValues("Authorization", out authorizations) )
             {
-                var actualAuthHeader = authorizations.First();
+                /*var actualAuthHeader = authorizations.First();
                 var appId = Environment.GetEnvironmentVariable("MicrosoftAppId") ?? "YourAppId";
                 var appSecret = Environment.GetEnvironmentVariable("MicrosoftAppPassword") ?? "YourAppSecret";
                 var expectedAuthHeader = "Basic " +
                     System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(appId + ":" + appSecret));
 
-                return actualAuthHeader == expectedAuthHeader;
+                return actualAuthHeader == expectedAuthHeader;*/
             }
 #if DEBUG
             return true;
